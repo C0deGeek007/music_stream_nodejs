@@ -1,10 +1,4 @@
-require("dotenv").config();
-const env = process.env;
-const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize(env.DATABASE, env.DB_USER_NAME, env.PASSWORD, {
-  host: env.HOST,
-  dialect: "postgres",
-});
+const db = require("./models/index")
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -17,7 +11,7 @@ app.get("/",(req, res)=>{
 
 (async () => {
   try {
-    await sequelize.authenticate();
+    await db.sequelize.authenticate();
     console.log("Connection has been established successfully.");
     server.listen(PORT, ()=>{
         console.log(`Server is running on ${PORT}`);
