@@ -41,3 +41,9 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+// ffmpeg -i input.mp3 -c:a copy -f hls -hls_time 10 -hls_list_size 0 output.m3u8
+// ffmpeg -i BigBuckBunny.mp4 -c:v copy -c:a copy -f segment -segment_time 5 -segment_list playlist.m3u8 output%03d.ts
+// ffmpeg -i input.mp3 -c:a aac -b:a 128k output.aac
+// ffmpeg -i output.aac -f hls -hls_time 10 -hls_list_size 0 output.m3u8
+
