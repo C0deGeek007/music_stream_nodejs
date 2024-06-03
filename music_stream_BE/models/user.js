@@ -15,12 +15,22 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'channels',
       })
+
+      User.belongsToMany(models.Channel, {
+        through: 'Subscribers',
+        as: 'subscribedChannels',
+        foreignKey: 'userId'
+      })
     }
   }
   User.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     password: DataTypes.STRING
   }, {
     sequelize,

@@ -15,12 +15,25 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'user',
       });
+
+      Channel.hasMany(models.Media, {
+        foreignKey: 'channelId',
+        as: 'media',
+      })
+
+      Channel.belongsToMany(models.User, {
+        through: 'Subscribers',
+        as: 'subscriber',
+        foreignKey: 'channelId'
+      });
+
     }
   }
   Channel.init({
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    userId: DataTypes.UUID
+    userId: DataTypes.INTEGER,
+    roomName: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Channel',

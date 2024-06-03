@@ -35,23 +35,45 @@ app.use("/static", express.static(path.join(__dirname, 'public'),{
   }
 }));
 
-app.get("/",async(req, res)=>{
-//   const user1 = await db.User.create({firstName:"rahul", lastName:"kumar"})
-//   const channel1 = await db.Channel.create({name:"channel of user1", userId:user1.id})
-// // const channel1 = db.Channel.build({name:"channel of user1", })
+// app.get("/",async(req, res)=>{
+//   // const user1 = await db.User.create({firstName:"rahul", lastName:"kumar", email:"abc@gmail.com"})
+//   // const channel1 = await db.Channel.create({name:"channel of user rahul", userId:user1.id})
+//   // const media1 = await db.Media.create({title:"video 1 of rahul", channelId:channel1.id})
+
+
+//   // const user2 = await db.User.create({firstName:"sachin", lastName:"kumar", email:"sachin@gmail.com"})
+
+//   const user2 = await db.User.findByPk(11);
+//   const channel1 = await db.Channel.findByPk(8);
+//   user2.addSubscribedChannel(channel1)
+
+//   console.log((await user2.getSubscribedChannels({
+//     include: [
+//       {
+//         model: db.User,
+//         as: 'user',
+//         attributes: ['email'] // Specify attributes you want to include
+//       }
+//     ]
+//   }))[0].user.email)
+  
+
+// const channel1 = db.Channel.build({name:"channel of user1", })
 //   console.log(user1.id)
 //   console.log(user1.channels)
 //   console.log(channel1.id)
 //   console.log(channel1.userId)
-//   const user_channels = await db.Channel.findAll({
-//     include: [
-//       {
-//         model: db.User,
-//         as: 'user' // Use the alias here
-//       }
-//     ]
-//   });
-//   console.log(user_channels)
+  // const user_channels = await db.Channel.findAll({
+  //   include: [
+  //     {
+  //       model: db.User,
+  //       as: 'user' // Use the alias here
+  //     }
+  //   ]
+  // });
+  // console.log(user_channels)
+  // console.log(user_channels[0].userId)
+  // console.log(user_channels[0].user)
 
 // const user = await db.User.findByPk(7, {
 //   include: {
@@ -63,8 +85,8 @@ app.get("/",async(req, res)=>{
 // console.log(user)
 // console.log(user.channels)
 
-  res.send("hello")
-});
+//   res.send("hello")
+// });
 
 
 
